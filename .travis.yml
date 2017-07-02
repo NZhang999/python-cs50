@@ -31,7 +31,7 @@ jobs:
         branch: master
     - provider: packagecloud
       username: cs50
-      repository: "${TRAVIS_REPO_SLUG}"
+      repository: python-cs50
       token: "${PACKAGECLOUD_TOKEN}"
       dist: "python"
       package_glob: "dist/*.gz"
