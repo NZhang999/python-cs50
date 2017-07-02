@@ -21,7 +21,7 @@ jobs:
     python: '3.4'
     install: skip
     before_script: skip
-    script: skip
+    script: python setup.py sdist
     deploy:
     - provider: script
       script: 'curl --fail --data "{ \"tag_name\": \"v$(python setup.py --version)\",
@@ -34,7 +34,7 @@ jobs:
       repository: "${TRAVIS_REPO_SLUG}"
       token: "${PACKAGECLOUD_TOKEN}"
       dist: "python"
-      package_glob: "dist/*.{whl,zip,egg,egg-info,tar,bz2,Z,gz}"
+      package_glob: "dist/*.gz"
       skip_cleanup: true
       on:
         branch: packagecloud
